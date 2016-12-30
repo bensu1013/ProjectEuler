@@ -14,92 +14,101 @@ var base = [75, 95, 64, 17, 47, 82,
             63, 66, 04, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
             04, 62, 98, 27, 23, 09, 70, 98, 73, 93, 38, 53, 60, 04, 23]
 
-
-var tempBase: [[Int]] = []
-var tempArray: [Int] = []
-
-for (index, num) in base.enumerated() {
+func filterArray(_ base: [Int]) -> [[Int]]{
     
-    tempArray.append(num)
+    var tempBase: [[Int]] = []
+    var tempArray: [Int] = []
     
-    switch index {
-    case 0:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 2:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 5:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 9:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 14:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 20:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 27:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 35:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 44:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 54:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 65:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 77:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 90:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 104:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    case 119:
-        tempBase.append(tempArray)
-        tempArray.removeAll()
-    default:
-        continue
-    }
-    
-}
-
-var sum = 0
-var prevIndex = 0
-
-for (index, section) in tempBase.enumerated() {
-    
-    if index == 0 {
-        sum += section[0]
-        prevIndex = 0
-    } else {
+    for (index, num) in base.enumerated() {
         
-        if section[prevIndex] > section[prevIndex + 1] {
-            sum += section[prevIndex]
-            print(section[prevIndex])
-        } else {
-            sum += section[prevIndex + 1]
-            prevIndex += 1
-            print(section[prevIndex])
+        tempArray.append(num)
+        
+        switch index {
+        case 0:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 2:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 5:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 9:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 14:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 20:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 27:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 35:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 44:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 54:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 65:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 77:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 90:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 104:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        case 119:
+            tempBase.append(tempArray)
+            tempArray.removeAll()
+        default:
+            continue
         }
-        
-        
-        
-        
     }
-    
-    
-    
+    return tempBase
 }
 
-sum
+func sumOfLargestPath(_ tempBase: [[Int]]) -> Int {
+    
+    var sum = 0
+    var prevIndex = 0
+    
+    for (index, section) in tempBase.enumerated() {
+        
+        if index == 0 {
+            sum += section[0]
+            prevIndex = 0
+        } else {
+            
+            if section[prevIndex] > section[prevIndex + 1] {
+                sum += section[prevIndex]
+                print(section[prevIndex])
+            } else {
+                sum += section[prevIndex + 1]
+                prevIndex += 1
+                print(section[prevIndex])
+            }
+        }
+    }
+    return sum
+}
+
+public func eulerEighteen() -> Int {
+    
+    let filtered = filterArray(base)
+    let answer = sumOfLargestPath(filtered)
+    
+    return answer
+}
+
+
+
+
