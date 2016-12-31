@@ -1,7 +1,9 @@
 import Foundation
 
 
-//largest palindrome number made by product of two three digit numbers
+//A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+//
+//Find the largest palindrome made from the product of two 3-digit numbers.
 
 public func eulerFour() -> Int {
     var large = 0
