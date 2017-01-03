@@ -1,5 +1,13 @@
 
-import Foundation
+/*
+ 
+ Sources contain the Euler problem and my current answers to them.
+ 
+ Uncomment lines below to see their answers.
+ 
+ */
+
+
 
 
 //eulerOne(maxNum: 1000)

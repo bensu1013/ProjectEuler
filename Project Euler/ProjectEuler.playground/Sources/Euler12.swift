@@ -14,30 +14,46 @@ import Foundation
 //15: 1,3,5,15
 //21: 1,3,7,21
 //28: 1,2,4,7,14,28
+
 //We can see that 28 is the first triangle number to have over five divisors.
 
 //What is the value of the first triangle number to have over five hundred divisors?
 
-public func eulerTwelve(divisors: Int) -> Int{
-    var isLooking = true
-    var primeCounter = 0
-    var triangleNumber = 1
-    var triNumCounter = 0
-    while isLooking {
-        triangleNumber += triNumCounter
-        triNumCounter += 1
+
+var existingDivisors: [Int : Int] = [:]
+
+
+
+public func eulerTwelve(divisors: Int) -> Int {
+    
+    var divisorsFound = 0
+    var naturalNumber = 1
+    var triangleNumber = 0
+    
+    while divisorsFound < divisors {
         
-        for num in 1...triangleNumber {
+        triangleNumber += naturalNumber
+        naturalNumber += 1
+        
+        for num in 1...(triangleNumber / 2 + 1) {
+            
             if triangleNumber % num == 0 {
-                primeCounter += 1
+                
+                divisorsFound += 1
+                
             }
+            
+        }
+     
+        print(triangleNumber)
+        print(naturalNumber)
+        if divisorsFound < divisors {
+            divisorsFound = 0
         }
         
-        if primeCounter >= divisors {
-            isLooking = false
-        }
-        primeCounter = 0
     }
+    
+    
     
     return triangleNumber
     
